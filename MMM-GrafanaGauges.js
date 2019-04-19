@@ -18,7 +18,7 @@ Module.register("MMM-GrafanaGauges", {
             var wrapper = document.createElement("div");
             var url = this.config.url;
             for (var i = 0; i < this.config.showIDs.length; i++) {
-                img += '<iframe src="' + url + '&panelId='+this.config.showIDs[i]+'" width="' + this.config.width + '" height="' + this.config.height + '" frameborder="0" scrolling="no"></iframe>';
+                img += '<iframe src="' + url + '&panelId='+this.config.showIDs[i]+'" width="' + this.config.width + '" height="' + this.config.height + '" frameborder="0" scrolling="no"></iframe><br />';
             }
             Log.info('img=' + img);
             wrapper.innerHTML = img;

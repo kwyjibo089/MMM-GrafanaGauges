@@ -32,10 +32,7 @@ modules: [
 		 position: 'top_right',   // This can be any of the regions.
          header: 'Olive tree',
 		 config: {
-					host: "grafana_host", //Mandatory. See url when displaying within grafana
-					port: 3000, // Mandatory.
-					dashboardname: "flowers", // Mandatory.
-					orgId: 1, // Mandatory.
+					url: "myurl",  // ie
 					showIDs: [12, 8, 9, 10],// Mandatory. PanelId from the url.
 					width: "100%", // Optional. Default: 100%
 					height: "100%", // Optional. Default: 100%

@@ -16,8 +16,7 @@ Module.register("MMM-GrafanaGauges", {
     getDom: function() {
             var img = '';
             var wrapper = document.createElement("div");
-            //var url =  "http://" +  this.config.host + ":" + this.config.port + "/dashboard-solo/db/" + this.config.dashboardname+  "?orgId=" + this.config.orgId
-            var url = "https://9ce8e98158f2a8d8b5cc1b1b6414f26e.balena-devices.com/d/pF3gRDiRk/balenasense?orgId=1&fullscreen&panelId=4";
+            var url = this.config.url;
             for (var i = 0; i < this.config.showIDs.length; i++) {
                 img += '<iframe src="' + url + '&panelId='+this.config.showIDs[i]+'" width="' + this.config.width + '" height="' + this.config.height + '" frameborder="0" scrolling="no"></iframe>';
             }
@@ -37,12 +36,12 @@ Module.register("MMM-GrafanaGauges", {
         }, nextLoad);
     },
     updateFrame: function() {
-        if (this.config.host === "") {
+        if (this.config.url === "") {
             Log.error("Tried to refresh, iFrameReload URL not set!");
             return;
         }
         // Change url to force refresh?
-        this.src = "http://" +  this.config.host + ":" + this.config.port + "/dashboard-solo/db/" + this.config.dashboardname+  "?orgId=" + this.config.orgId;
+        this.src = this.config.url;
         this.updateDom(this.config.animationSpeed);
         this.scheduleUpdate(this.config.refreshInterval);
     }
